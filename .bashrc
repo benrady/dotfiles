@@ -48,5 +48,7 @@ alias pbpaste='xclip -selection clipboard -o'
 
 export EDITOR=vim
 
+alias makej='make -j $(nproc)'
+
 # Assume virtual environments in the current directory
 export VIRTUAL_ENV=.venv
