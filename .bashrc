@@ -36,9 +36,6 @@ git config --global user.useConfigOnly false
 # Enable Autojump
 . ${DOTFILES_DIR}/autojump/autojump.bash
 
-# Enable vi mode
-set -o vi
-
 # Use hstr for searching bash history
 ## Whenever a command is executed, write it to a global history
 PROMPT_COMMAND="history -a ~/.bash_history.global; $PROMPT_COMMAND"
