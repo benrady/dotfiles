@@ -41,6 +41,10 @@ function timer_stop {
   unset timer
 }
 
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
 trap 'timer_start' DEBUG
 
 # NOTE! timer_stop must be the last command in the PROMPT_COMMAND
@@ -50,5 +54,5 @@ else
   PROMPT_COMMAND="$PROMPT_COMMAND; timer_stop"
 fi
 
-PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\] [\${timer_show}s]:\[\033[01;34m\]\w\[\033[00m\]\$ "
+PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\] [\${timer_show}s]:\[\033[01;34m\]\w\[\e[91m\] \$(parse_git_branch)\[\e[00m\]\[\033[00m\]\$ "
 
