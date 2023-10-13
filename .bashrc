@@ -24,7 +24,7 @@ HISTFILESIZE=20000000000000
 ## Whenever a command is executed, write it to a global history
 PROMPT_COMMAND="history -a ~/.bash_history; $PROMPT_COMMAND"
 ## Remap CTRL-r
-bind -x '"\C-r": "HISTFILE=~/.bash_history hh"'
+bind -x '"\C-r": "HISTFILE=~/.bash_history hstr"'
 
 # aliases for easy copy/paste from terminal
 alias pbcopy='xclip -selection clipboard'
