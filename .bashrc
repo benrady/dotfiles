@@ -9,17 +9,22 @@ function install_required_packages() {
 DOTFILES_DIR=$(dirname "$BASH_SOURCE")
 export PATH=$PATH:$DOTFILES_DIR/bin
 
+export PATH=$PATH:$DOTFILES_DIR/bin
+
 # Force per-repository git configs
 git config --global user.useConfigOnly false
 
 # Enable Autojump
 . ${DOTFILES_DIR}/autojump/autojump.bash
 
+HISTSIZE=100000000000000
+HISTFILESIZE=20000000000000
+
 # Use hstr for searching bash history
 ## Whenever a command is executed, write it to a global history
-PROMPT_COMMAND="history -a ~/.bash_history.global; $PROMPT_COMMAND"
+PROMPT_COMMAND="history -a ~/.bash_history; $PROMPT_COMMAND"
 ## Remap CTRL-r
-bind -x '"\C-r": "HISTFILE=~/.bash_history.global hh"'
+bind -x '"\C-r": "HISTFILE=~/.bash_history hh"'
 
 # aliases for easy copy/paste from terminal
 alias pbcopy='xclip -selection clipboard'

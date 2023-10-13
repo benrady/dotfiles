@@ -1,0 +1,6 @@
+#!/usr/bin/env python3
+
+import sys, pprint
+import pyarrow.parquet as pq
+m = pq.read_metadata(sys.argv[1])
+pprint.PrettyPrinter().pprint(m.to_dict())
