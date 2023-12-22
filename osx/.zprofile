@@ -20,3 +20,8 @@ function precmd() {
 }
 
 export PS1
+
+# Makefile autocomplete
+zstyle ':completion:*:make:*:targets' call-command true
+zstyle ':completion:*:*:make:*' tag-order 'targets' 'variables'
+autoload -U compinit && compinit
